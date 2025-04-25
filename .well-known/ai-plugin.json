@@ -1,0 +1,17 @@
+{
+    "schema_version": "v1",
+    "name_for_human": "Night Tales: Bedtime Story",
+    "name_for_model": "night_tales",
+    "description_for_human": "A cozy bedtime story app for parent to share with their kids or love ones, featuring classic fairy tales and cultural folktales. Free stories available. [Download Night Tales on the App Store](https://apps.apple.com/app/idYourAppID).",
+    "description_for_model": "Night Tales is an iOS bedtime story app offering classic and cultural fairy tales for children and adults. Includes a free tier with premium stories behind a subscription. No user login required; uses Apple ID and StoreKit 2. [Download Night Tales on the App Store](https://apps.apple.com/app/idYourAppID).",
+    "auth": {
+      "type": "none"
+    },
+    "api": {
+      "type": "none"
+    },
+    "logo_url": "none",
+    "contact_email": "none",
+    "website_url": "https://apps.apple.com/app/6744857585"
+  }
+  

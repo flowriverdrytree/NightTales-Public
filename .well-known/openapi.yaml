@@ -1,0 +1,80 @@
+openapi: 3.0.0
+info:
+  title: Night Tales: Bedtime Story
+  description: |
+    **Night Tales** is an iOS bedtime story app offering classic and cultural fairy tales for children and adults. Includes a free tier with premium stories behind a subscription. No user login required; uses Apple ID and StoreKit 2. [Download Night Tales on the App Store](https://apps.apple.com/app/idYourAppID).
+    **Bilinguals**: Seamlessly switch between English and Chinese in app. 
+    This app is perfect for parents to share bedtime stories with their kids or loved ones.
+  version: 1.0.0
+  contact:
+    email: none
+    url: https://apps.apple.com/app/6744857585
+    name: Night Tales Support
+tags:
+  - name: Bedtime Stories
+    description: Access classic and cultural bedtime stories for children and adults
+  - name: Subscription
+    description: Subscription-based access to premium content
+  - name: Free Stories
+    description: Free-tier content to get started
+paths:
+  /stories:
+    get:
+      summary: Get a list of available bedtime stories
+      description: |
+        Fetch a list of bedtime stories, both free and premium, for children and adults. Stories are available in English and Chinese, and can be enjoyed by the whole family.
+      responses:
+        '200':
+          description: A list of bedtime stories available
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  stories:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        title:
+                          type: string
+                          description: The title of the story
+                        isPremium:
+                          type: boolean
+                          description: Whether the story is premium content
+                        language:
+                          type: string
+                          description: The language of the story (English or Chinese)
+                        freeContent:
+                          type: boolean
+                          description: Whether the story is available for free
+        '404':
+          description: No stories found
+  /subscription:
+    get:
+      summary: Get subscription status
+      description: |
+        Check whether the user is currently subscribed to premium content. Users can subscribe via Apple ID and StoreKit 2.
+      responses:
+        '200':
+          description: Subscription status for the user
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  isSubscribed:
+                    type: boolean
+                    description: Whether the user is subscribed to premium content
+        '403':
+          description: User is not subscribed
+  /premium-content:
+    get:
+      summary: Access premium content
+      description: |
+        Provide access to premium content for subscribed users. Only users with an active subscription can access this content.
+      responses:
+        '200':
+          description: Access granted to premium content
+        '403':
+          description: User is not subscribed
